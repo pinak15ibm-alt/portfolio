@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolio – Parth Katudiya</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Parth Katudiya, B.Com student at M.S. University." />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-light: #111827;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --card-bg: #020617;
+      --border: rgba(148, 163, 184, 0.2);
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.75);
+      --radius-lg: 18px;
+      --radius-full: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+    .container {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Glassy top bar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.6));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 0;
+    }
+
+    .logo {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .logo-badge {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 10%, #60a5fa, #2563eb 55%, #1d4ed8 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      box-shadow: 0 0 22px rgba(37, 99, 235, 0.9);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      position: relative;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.35rem;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(to right, #60a5fa, #2563eb);
+      transition: width 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero section */
+    .hero {
+      padding: 3.5rem 0 2.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      font-size: 0.7rem;
+      color: var(--muted);
+      background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.35), rgba(15, 23, 42, 0.85));
+      margin-bottom: 0.75rem;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 3vw + 1rem, 2.75rem);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(to right, #60a5fa, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.93rem;
+      color: var(--muted);
+      max-width: 32rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-meta span {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 0.65rem 1.4rem;
+      font-size: 0.85rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease, border-color 0.16s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #2563eb, #4f46e5);
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.5);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 55px rgba(37, 99, 235, 0.65);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: #60a5fa;
+      color: var(--text);
+    }
+
+    /* Photo card */
+    .hero-card {
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
+      border-radius: 26px;
+      padding: 1.4rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.11), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .photo-frame {
+      position: relative;
+      border-radius: 22px;
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      padding: 1.25rem;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .photo-placeholder {
+      width: 150px;
+      height: 150px;
+      border-radius: 999px;
+      margin: 0 auto 0.9rem;
+      border: 2px dashed rgba(148, 163, 184, 0.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+      background: radial-gradient(circle at top, rgba(37, 99, 235, 0.25), rgba(15, 23, 42, 0.9));
+    }
+
+    .photo-placeholder span {
+      opacity: 0.85;
+    }
+
+    .photo-text {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Sections */
+    section {
+      padding: 2.5rem 0;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      margin-bottom: 1.6rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(to right, #60a5fa, #a855f7);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.7rem;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.22), rgba(15, 23, 42, 0.95));
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1.3rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+      font-size: 0.88rem;
+    }
+
+    .card h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.76rem;
+      padding: 0.22rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .list {
+      list-style: none;
+      font-size: 0.87rem;
+      color: var(--muted);
+    }
+
+    .list li {
+      margin-bottom: 0.35rem;
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    .list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #60a5fa;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .project-card {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 1rem 1.1rem;
+      font-size: 0.86rem;
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.9);
+    }
+
+    .project-card h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin-bottom: 0.55rem;
+    }
+
+    /* Contact */
+    .contact-card {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+      font-size: 0.86rem;
+    }
+
+    .contact-item {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 999px;
+      padding: 0.7rem 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+    }
+
+    .contact-item span:first-child {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .contact-item span:last-child {
+      font-size: 0.82rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    footer {
+      padding: 1.6rem 0 2.2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    footer span {
+      background: linear-gradient(to right, #60a5fa, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 500;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 2.6rem;
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .projects {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contact-card {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      nav ul {
+        display: none;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        padding: 1rem;
+      }
+
+      .photo-placeholder {
+        width: 130px;
+        height: 130px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-badge">P</div>
+        <span>Parth&nbsp;Katudiya</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">
+            <span class="badge-dot"></span>
+            <span>B.Com Student • M.S. University</span>
+          </div>
+          <h1>
+            Hi, I’m <span>Parth Katudiya</span><br />
+            aspiring Accountant & Finance Professional
+          </h1>
+          <p class="hero-subtitle">
+            Commerce student at M.S. University with a strong interest in accounting, finance, taxation,
+            and business analysis. Eager to gain practical experience and contribute to a growth-oriented organization.
+          </p>
+
+          <div class="hero-meta">
+            <span>B.Com • Commerce</span>
+            <span>Accounting & Finance</span>
+            <span>Actively seeking internships</span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">Contact Me</a>
+            <a href="#projects" class="btn-ghost">View My Projects</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="photo-frame">
+            <!-- PHOTO PLACEHOLDER -->
+            <!-- Later: replace this div with <img src="your-photo.jpg" alt="Parth Katudiya" class="photo-img" /> -->
+            <div class="photo-placeholder">
+              <span>Your Photo Here</span>
+            </div>
+            <p class="photo-text">
+              Add your professional photo here.<br />
+              Just replace this placeholder with an <code>&lt;img&gt;</code> tag.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT & EDUCATION -->
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About & Education</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>About Me</h3>
+            <p class="muted">
+              I am a dedicated B.Com student at M.S. University. I enjoy working with numbers, financial data,
+              and understanding how businesses operate. My interests include financial reporting, taxation,
+              business strategy, and analysing the performance of companies.
+            </p>
+            <br />
+            <p class="muted">
+              I am looking for opportunities to apply my academic knowledge in a real-world environment through
+              internships and entry-level roles in accounting, finance, or related fields.
+            </p>
+          </div>
+
+          <div class="card" id="education">
+            <h3>Education</h3>
+            <ul class="list">
+              <li>
+                <strong>Bachelor of Commerce (B.Com)</strong><br />
+                M.S. University – Currently pursuing
+              </li>
+              <li>
+                <strong>12th – Commerce Stream</strong><br />
+                School: [Your School Name] – Year: [YYYY]
+              </li>
+              <li>
+                <strong>10th Standard</strong><br />
+                School: [Your School Name] – Year: [YYYY]
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Commerce & Finance</h3>
+            <div class="tag-row">
+              <span class="tag">Financial Accounting</span>
+              <span class="tag">Cost & Management Accounting</span>
+              <span class="tag">Business Economics</span>
+              <span class="tag">Taxation (GST & Basics of Income Tax)</span>
+              <span class="tag">Auditing</span>
+              <span class="tag">Banking & Insurance</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Technical & Soft Skills</h3>
+            <div class="tag-row">
+              <span class="tag">MS Excel (Formulas, Charts)</span>
+              <span class="tag">MS Word & PowerPoint</span>
+              <span class="tag">Google Sheets</span>
+              <span class="tag">Basic Tally / Accounting Software</span>
+              <span class="tag">Communication</span>
+              <span class="tag">Analytical Thinking</span>
+              <span class="tag">Problem Solving</span>
+              <span class="tag">Time Management</span>
+              <span class="tag">Teamwork</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Academic Projects</h2>
+        <div class="projects">
+          <div class="project-card">
+            <h3>Financial Statement Analysis</h3>
+            <p>
+              Analysed the financial statements of a selected company over three years to understand financial health.
+            </p>
+            <ul class="list">
+              <li>Calculated liquidity and profitability ratios</li>
+              <li>Interpreted financial position and performance</li>
+              <li>Suggested areas for improvement</li>
+            </ul>
+          </div>
+
+          <div class="project-card">
+            <h3>Personal Budget Planning</h3>
+            <p>
+              Created a monthly budget plan for an individual to manage income, expenses, and savings efficiently.
+            </p>
+            <ul class="list">
+              <li>Classified income and different expense categories</li>
+              <li>Designed charts for easy expense visualization</li>
+              <li>Recommended cost-saving and saving strategies</li>
+            </ul>
+          </div>
+
+          <div class="project-card">
+            <h3>Marketing Strategy Case Study</h3>
+            <p>
+              Analysed the marketing strategy of a local or online business and proposed ideas to improve growth.
+            </p>
+            <ul class="list">
+              <li>Identified target customers and competitors</li>
+              <li>Reviewed current promotional methods</li>
+              <li>Suggested new marketing initiatives</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE & GOAL -->
+    <section>
+      <div class="container">
+        <h2 class="section-title">Experience & Career Goal</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Experience</h3>
+            <p class="muted">
+              Currently a fresher, actively looking for internship and training opportunities in:
+            </p>
+            <ul class="list">
+              <li>Accounting</li>
+              <li>Finance</li>
+              <li>Banking</li>
+              <li>Business Development</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Career Objective</h3>
+            <p class="muted">
+              To obtain a challenging position in a reputed organization where I can utilize my knowledge of commerce,
+              accounting, and finance, while learning from industry professionals and contributing to the growth of the
+              company as I build a strong professional career.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section id="certificates">
+      <div class="container">
+        <h2 class="section-title">Certificates</h2>
+
+        <div class="projects">
+          <!-- Certificate 1 -->
+          <div class="project-card" style="text-align: center;">
+            <div style="
+              width: 100%;
+              height: 170px;
+              border: 2px dashed rgba(148, 163, 184, 0.5);
+              border-radius: 12px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-bottom: 10px;
+              color: #9ca3af;
+              font-size: 14px;
+            ">
+              Certificate Image Here
+            </div>
+            <strong>Certificate Title</strong>
+            <p class="muted">From – Course / Organization</p>
+          </div>
+
+          <!-- Certificate 2 -->
+          <div class="project-card" style="text-align: center;">
+            <div style="
+              width: 100%;
+              height: 170px;
+              border: 2px dashed rgba(148, 163, 184, 0.5);
+              border-radius: 12px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-bottom: 10px;
+              color: #9ca3af;
+              font-size: 14px;
+            ">
+              Certificate Image Here
+            </div>
+            <strong>Certificate Title</strong>
+            <p class="muted">From – Course / Organization</p>
+          </div>
+
+          <!-- Certificate 3 -->
+          <div class="project-card" style="text-align: center;">
+            <div style="
+              width: 100%;
+              height: 170px;
+              border: 2px dashed rgba(148, 163, 184, 0.5);
+              border-radius: 12px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-bottom: 10px;
+              color: #9ca3af;
+              font-size: 14px;
+            ">
+              Certificate Image Here
+            </div>
+            <strong>Certificate Title</strong>
+            <p class="muted">From – Course / Organization</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-card">
+          <div class="contact-item">
+            <span>Email</span>
+            <span>example@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <span>Location</span>
+            <span>India</span>
+          </div>
+          <div class="contact-item">
+            <span>Phone</span>
+            <span>[Add your number]</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span>Parth&nbsp;Katudiya</span> · B.Com Student · M.S. University
+  </footer>
+</body>
+</html>
