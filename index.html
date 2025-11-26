@@ -30,6 +30,10 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: "Poppins", sans-serif;
       background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
@@ -209,6 +213,10 @@
       border: 1px solid transparent;
       cursor: pointer;
       transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease, border-color 0.16s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
     }
 
     .btn-primary {
@@ -394,12 +402,13 @@
       margin-bottom: 0.55rem;
     }
 
-    /* Contact */
+    /* Contact & social */
     .contact-card {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1.1rem;
       font-size: 0.86rem;
+      margin-bottom: 1.4rem;
     }
 
     .contact-item {
@@ -423,6 +432,27 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .social-link {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--muted);
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .social-link:hover {
+      border-color: #60a5fa;
+      color: var(--text);
     }
 
     footer {
@@ -504,6 +534,7 @@
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#resume">Resume</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -536,7 +567,8 @@
 
           <div class="hero-actions">
             <a href="#contact" class="btn-primary">Contact Me</a>
-            <a href="#projects" class="btn-ghost">View My Projects</a>
+            <a href="#resume" class="btn-ghost">Download Resume</a>
+            <a href="#projects" class="btn-ghost">View Projects</a>
           </div>
         </div>
 
@@ -772,6 +804,38 @@
       </div>
     </section>
 
+    <!-- RESUME -->
+    <section id="resume">
+      <div class="container">
+        <h2 class="section-title">Resume</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Download My Resume</h3>
+            <p class="muted">
+              You can download my latest resume in PDF format using the button below.
+              It includes my academic details, skills, and achievements in a single document.
+            </p>
+            <br />
+            <!-- IMPORTANT:
+                 Upload a file named "Parth_Katudiya_Resume.pdf"
+                 into this GitHub repository (root folder). -->
+            <a href="Parth_Katudiya_Resume.pdf" class="btn-primary" download>
+              ⬇ Download Resume (PDF)
+            </a>
+          </div>
+          <div class="card">
+            <h3>How to Update</h3>
+            <ul class="list">
+              <li>Export your resume from Word/Canva as <strong>PDF</strong>.</li>
+              <li>Save it as <code>Parth_Katudiya_Resume.pdf</code>.</li>
+              <li>Upload it to this GitHub repo (same place as index.html).</li>
+              <li>The download button will automatically start working.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section id="contact">
       <div class="container">
@@ -790,6 +854,13 @@
             <span>[Add your number]</span>
           </div>
         </div>
+
+        <div class="social-row">
+          <!-- Replace # with your real links -->
+          <a class="social-link" href="mailto:example@gmail.com">Email Me</a>
+          <a class="social-link" href="#" target="_blank">LinkedIn</a>
+          <a class="social-link" href="#" target="_blank">Instagram</a>
+        </div>
       </div>
     </section>
   </main>
@@ -799,3 +870,5 @@
   </footer>
 </body>
 </html>
+
+
